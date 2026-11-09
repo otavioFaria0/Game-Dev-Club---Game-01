@@ -1,0 +1,24 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Objetos","order":3,"path":"folders/Objetos.yy",},
+    {"name":"Salas","order":2,"path":"folders/Salas.yy",},
+    {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"fonte_death","order":4,"path":"fonts/fonte_death/fonte_death.yy",},
+    {"name":"obj_death","order":6,"path":"objects/obj_death/obj_death.yy",},
+    {"name":"obj_enemy","order":1,"path":"objects/obj_enemy/obj_enemy.yy",},
+    {"name":"obj_exit","order":2,"path":"objects/obj_exit/obj_exit.yy",},
+    {"name":"obj_power","order":5,"path":"objects/obj_power/obj_power.yy",},
+    {"name":"obj_spike","order":3,"path":"objects/obj_spike/obj_spike.yy",},
+    {"name":"obj_wall","order":4,"path":"objects/obj_wall/obj_wall.yy",},
+    {"name":"rm_death","order":1,"path":"rooms/rm_death/rm_death.yy",},
+    {"name":"rm_sala2","order":2,"path":"rooms/rm_sala2/rm_sala2.yy",},
+    {"name":"spr_death","order":6,"path":"sprites/spr_death/spr_death.yy",},
+    {"name":"spr_enemy","order":5,"path":"sprites/spr_enemy/spr_enemy.yy",},
+    {"name":"spr_exit","order":4,"path":"sprites/spr_exit/spr_exit.yy",},
+    {"name":"spr_player","order":2,"path":"sprites/spr_player/spr_player.yy",},
+    {"name":"spr_power","order":3,"path":"sprites/spr_power/spr_power.yy",},
+    {"name":"spr_spike","order":1,"path":"sprites/spr_spike/spr_spike.yy",},
+  ],
+}
