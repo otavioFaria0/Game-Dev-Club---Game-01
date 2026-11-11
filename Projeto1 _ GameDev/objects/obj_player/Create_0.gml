@@ -1,5 +1,3 @@
-
-
 // movimento do player
 xspd = 0;
 yspd = 0;
@@ -17,41 +15,65 @@ max_pulos = 2;
 
 // mecanica do dash
 
-// dashSpd é a força do dash, ele multiplica a velocidade de caminhada do player
+// velocidade do dash
 dashSpd = 12;
 
-//duracao do dash
+// duracao do dash
 dashDuracao = 10;
 dashTempo = 0;
 
-//contador para usar o dash de novo, intervalo entre eles
+// intervalo entre os dashes
 dashEspera = 40;
 dashCooldown = 0;
 
-// precisa disso para conseguir usar tanto pra esquerda quanto para a direita
+// direcao do dash
 dashDirecao = 1;
 
-// atributos do jogador, tudo isso aqui eu deixei provisório, nao sei nem se vai dar para atacar , mas enfim
+// atributos do jogador
 vida = 100;
 maxVida = 100;
 dano = 10;
 
 // mecanicas do walljump
 
-//comeca bloqueado no inicio da fase, até pegar a orb
+// comeca bloqueado no inicio da fase, até pegar a orb
 wallJumpLiberado = false;
 
-//isso aqui é a velocidade que o player deslza, quanto menor, mais grudado ele fica na parede, e vice versa
+// velocidade de deslizar na parede
 wallSlideSpd = 1.0;
 
-
-// o X é para ele pular na direcao contraria da parede
-// o Y é para ele pular para cima (obvio), tem que ser negativo porque o gamemaker usa assim
+// impulso horizontal e vertical do walljump
 wallJumpX = 6;
 wallJumpY = -9;
 
 wallJumpTempo = 0;
 wallJumpDuracao = 10;
-
 wallJumpDirecao = 0;
 
+
+// ANIMACOES DO PLAYER
+
+sprite_index = spr_player_idle;
+
+// mascara de colisao fixa
+mask_index = spr_player_idle;
+
+// velocidade das animacoes
+image_speed = 0.2;
+
+// tamanho do personagem
+escalaPlayer = 3;
+
+// direcao do personagem
+// 1 = direita
+// -1 = esquerda
+direcaoPlayer = 1;
+
+// orientacao original dos sprites
+// 1 = sprites normais olhando para direita
+// -1 = sprites normais olhando para esquerda
+orientacaoSprite = 1;
+
+// escala fixa para nao inverter a colisao
+image_xscale = escalaPlayer;
+image_yscale = escalaPlayer;
