@@ -2,3 +2,5 @@
 
 // da pra pensar em adicionar checkpoints depois para nnao ser tao punitivo
 room_goto(rm_sala1);
+
+//teste
