@@ -1,22 +1,26 @@
-// INPUTS DO JOGADOR
+
+
+// inputs do jogador
 
 var _left = keyboard_check(ord("A")) || keyboard_check(vk_left);
 var _right = keyboard_check(ord("D")) || keyboard_check(vk_right);
 
-// verifica se apertou espaço
+// Verifica se o jogador apertou espaço
 var _jump = keyboard_check_pressed(vk_space);
 
-// verifica se está segurando shift
+// Verifica se o jogador está segurando shift
 var _run = keyboard_check(vk_shift);
 
-// verifica se apertou E
+// Verifica se o jogador apertou E para dar dash
 var _dash = keyboard_check_pressed(ord("E"));
 
 
-// VELOCIDADE DO PLAYER
 
+
+// Velocidade padrão do personagem
 var velocidade = moveSpd;
 
+// Se estiver segurando shift, corre
 if (_run)
 {
     velocidade = runSpd;
@@ -25,26 +29,16 @@ if (_run)
 xspd = (_right - _left) * velocidade;
 
 
-// DIRECAO DO PERSONAGEM
+// gravidade do jogo
 
-// A = esquerda
-if (_left && !_right)
-{
-    direcaoPlayer = -1;
-}
-
-// D = direita
-else if (_right && !_left)
-{
-    direcaoPlayer = 1;
-}
+yspd += grav;
 
 
-// VERIFICA SE ESTA NO CHAO
+// verifica se o player esta no chao
 
 var no_chao = place_meeting(x, y + 1, obj_wall);
 
-// reseta os pulos quando encosta no chão
+// Reseta os pulos quando o jogador encosta no chão
 if (no_chao)
 {
     if (yspd > 0)
@@ -56,45 +50,43 @@ if (no_chao)
 }
 
 
-// GRAVIDADE
-
-if (!no_chao)
-{
-    yspd += grav;
-}
-
-
-// MECANICA DAS PAREDES
+// mecanica das paredes do walljump
 
 var parede_esquerda = place_meeting(x - 1, y, obj_wall);
 var parede_direita = place_meeting(x + 1, y, obj_wall);
 
+// Verifica se o jogador está pressionando contra a parede
 var pressionando_parede =
     (parede_esquerda && _left) ||
     (parede_direita && _right);
 
-
-// WALL SLIDE
-
+// Verifica se o jogador está deslizando pela parede
 var wallSliding = wallJumpLiberado &&
                   !no_chao &&
                   pressionando_parede &&
                   yspd > 0 &&
                   wallJumpTempo <= 0;
 
+
+
+
+// Reduz a velocidade de queda quando encostado na parede
 if (wallSliding)
 {
     yspd = min(yspd, wallSlideSpd);
 }
 
 
-// WALL JUMP
 
+
+// condicao para usar o walljump
 if (_jump && wallJumpLiberado &&
     !no_chao && pressionando_parede)
 {
+    // Impulsiona o jogador para cima
     yspd = wallJumpY;
 
+    // condicao para jogar o player na direção contraria da parede
     if (parede_direita)
     {
         wallJumpDirecao = -1;
@@ -104,122 +96,63 @@ if (_jump && wallJumpLiberado &&
         wallJumpDirecao = 1;
     }
 
+    // impulso horizontal do walljump
     wallJumpTempo = wallJumpDuracao;
-    direcaoPlayer = wallJumpDirecao;
 }
 else if (_jump && pulos < max_pulos)
 {
+    // Executa o pulo 
     yspd = jump;
     pulos++;
 }
 
 
-// IMPULSO DO WALLJUMP
 
+
+// impulso do walljump
 if (wallJumpTempo > 0)
 {
     xspd = wallJumpDirecao * wallJumpX;
     wallJumpTempo--;
-
-    direcaoPlayer = wallJumpDirecao;
 }
 
 
-// DASH
+// direcao do personagem, como ele ainda nao tem sprite, nao muda muita coisa
+// mas ja deixei preparado para ele conseguir inverter o sprite nas duas direções
 
+if (xspd != 0 && dashTempo <= 0 && wallJumpTempo <= 0)
+{
+    image_xscale = sign(xspd);
+}
+
+
+// mecanica do dash
+
+// contador para limitar o intervalo do dash
 if (dashCooldown > 0)
 {
     dashCooldown--;
 }
 
+// condicao para usar o dash novamente
 if (_dash && dashCooldown <= 0 && dashTempo <= 0)
 {
     dashTempo = dashDuracao;
     dashCooldown = dashEspera;
-    dashDirecao = direcaoPlayer;
+    dashDirecao = image_xscale;
 }
 
+// essa condicao roda enquanto o dash esta ativo, quando o player esta na animacao do dash
 if (dashTempo > 0)
 {
     xspd = dashDirecao * dashSpd;
     yspd = 0;
 
     dashTempo--;
-    direcaoPlayer = dashDirecao;
 }
 
 
-// ESCALA FIXA PARA COLISAO
-
-image_xscale = escalaPlayer;
-image_yscale = escalaPlayer;
-
-
-// MOVIMENTO E COLISAO
+// movimento e colisao
 
 move_and_collide(xspd, yspd, obj_wall);
 
-
-// VERIFICA COLISAO DEPOIS DO MOVIMENTO
-
-var no_chao_final = place_meeting(x, y + 1, obj_wall);
-
-if (no_chao_final && yspd >= 0)
-{
-    yspd = 0;
-    pulos = 0;
-}
-
-
-// VERIFICA PAREDES APOS MOVIMENTO
-
-var parede_esquerda_final = place_meeting(x - 1, y, obj_wall);
-var parede_direita_final = place_meeting(x + 1, y, obj_wall);
-
-var pressionando_parede_final =
-    (parede_esquerda_final && _left) ||
-    (parede_direita_final && _right);
-
-
-// ANIMACOES DO PLAYER
-
-var _sprite = spr_player_idle;
-
-var _wall_slide_anim = wallJumpLiberado &&
-                       !no_chao_final &&
-                       pressionando_parede_final &&
-                       yspd > 0 &&
-                       wallJumpTempo <= 0 &&
-                       dashTempo <= 0;
-
-if (no_chao_final)
-{
-    if (abs(xspd) > 0)
-    {
-        _sprite = spr_player_run;
-    }
-    else
-    {
-        _sprite = spr_player_idle;
-    }
-}
-else
-{
-    if (_wall_slide_anim)
-    {
-        _sprite = spr_player_wall_slide;
-    }
-    else
-    {
-        _sprite = spr_player_jump;
-    }
-}
-
-
-// TROCA DE SPRITE
-
-if (sprite_index != _sprite)
-{
-    sprite_index = _sprite;
-    image_index = 0;
-}
