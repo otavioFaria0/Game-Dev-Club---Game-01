@@ -1,42 +1,42 @@
 
 
-// movimento do player
+// Movimentos do player
 xspd = 0;
 yspd = 0;
 
 moveSpd = 4;
 runSpd = 6;
 
-// mecanica do pulo
+// Mêcanica do pulo
 jump = -9;
 grav = 0.4;
 
-// maximo de pulos para limitar o double jump
+// Máximo de pulos para limitar o Double Jump (Pulo Duplo)
 pulos = 0;
 max_pulos = 2;
 
-// mecanica do dash
+// Mêcanica do dash
 
-// dashSpd é a força do dash, ele multiplica a velocidade de caminhada do player
+// dashSpd é a força do dash, ele multiplica a velocidade de caminhada do jogador
 dashSpd = 12;
 
-//duracao do dash
+//Duração do dash
 dashDuracao = 10;
 dashTempo = 0;
 
-//contador para usar o dash de novo, intervalo entre eles
+//Contador para usar o dash de novo, intervalo entre eles
 dashEspera = 40;
 dashCooldown = 0;
 
-// precisa disso para conseguir usar tanto pra esquerda quanto para a direita
+// Direção do dash, usa tanto pra esquerda quanto para a direita
 dashDirecao = 1;
 
-// atributos do jogador, tudo isso aqui eu deixei provisório, nao sei nem se vai dar para atacar , mas enfim
+// Atributos do jogador, tudo isso aqui eu deixei provisório, nem sei se vai dar para atacar , mas enfim
 vida = 100;
 maxVida = 100;
 dano = 10;
 
-// mecanicas do walljump
+// Mêcanicas do Wall Jump (pular na parede)
 
 //comeca bloqueado no inicio da fase, até pegar a orb
 wallJumpLiberado = false;
@@ -46,7 +46,7 @@ wallSlideSpd = 1.0;
 
 
 // o X é para ele pular na direcao contraria da parede
-// o Y é para ele pular para cima (obvio), tem que ser negativo porque o gamemaker usa assim
+// o Y é para ele pular para cima (obvio), tem que ser negativo porque o Game Maker usa assim
 wallJumpX = 6;
 wallJumpY = -9;
 
