@@ -1,4 +1,4 @@
-// INPUTS DO JOGADOR
+#region// INPUTS DO JOGADOR
 
 var _left = keyboard_check(ord("A")) || keyboard_check(vk_left);
 var _right = keyboard_check(ord("D")) || keyboard_check(vk_right);
@@ -12,11 +12,12 @@ var _run = keyboard_check(vk_shift);
 // verifica se apertou E
 var _dash = keyboard_check_pressed(ord("E"));
 
-
 // VELOCIDADE DO PLAYER
-
 var velocidade = moveSpd;
 
+#endregion
+
+#region// MOVIMENTAÇÃO
 if (_run)
 {
     velocidade = runSpd;
@@ -38,9 +39,9 @@ else if (_right && !_left)
 {
     direcaoPlayer = 1;
 }
+#endregion
 
-
-// VERIFICA SE ESTA NO CHAO
+#region// VERIFICA SE ESTA NO CHAO
 
 var no_chao = place_meeting(x, y + 1, obj_wall);
 
@@ -54,17 +55,17 @@ if (no_chao)
 
     pulos = 0;
 }
+#endregion
 
-
-// GRAVIDADE
+#region// GRAVIDADE
 
 if (!no_chao)
 {
     yspd += grav;
 }
+#endregion
 
-
-// MECANICA DAS PAREDES
+#region// MECANICA DAS PAREDES
 
 var parede_esquerda = place_meeting(x - 1, y, obj_wall);
 var parede_direita = place_meeting(x + 1, y, obj_wall);
@@ -86,7 +87,6 @@ if (wallSliding)
 {
     yspd = min(yspd, wallSlideSpd);
 }
-
 
 // WALL JUMP
 
@@ -123,9 +123,9 @@ if (wallJumpTempo > 0)
 
     direcaoPlayer = wallJumpDirecao;
 }
+#endregion
 
-
-// DASH
+#region// DASH
 
 if (dashCooldown > 0)
 {
@@ -147,7 +147,7 @@ if (dashTempo > 0)
     dashTempo--;
     direcaoPlayer = dashDirecao;
 }
-
+#endregion
 
 // ESCALA FIXA PARA COLISAO
 
@@ -160,6 +160,7 @@ image_yscale = escalaPlayer;
 move_and_collide(xspd, yspd, obj_wall);
 
 
+#region SPRITE E ANIMAÇÃO
 // VERIFICA COLISAO DEPOIS DO MOVIMENTO
 
 var no_chao_final = place_meeting(x, y + 1, obj_wall);
@@ -223,3 +224,4 @@ if (sprite_index != _sprite)
     sprite_index = _sprite;
     image_index = 0;
 }
+#endregion
