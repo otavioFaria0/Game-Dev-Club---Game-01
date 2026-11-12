@@ -17,7 +17,8 @@ other.dashCooldown = 0;
 
 // texto que aparece ao coletar a habilidade
 other.texto_flutuante = "Dash liberado! Pulo duplo perdido!";
-other.tempo_texto = 120;
+other.tempo_texto = 360;
+other.cor_texto = c_black; // Define que ESSE texto será preto
 
 
 // remove o coletavel da sala

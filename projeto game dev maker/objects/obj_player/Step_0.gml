@@ -235,14 +235,14 @@ else
 
 // CONTADOR PARA O TEXTO DO COLETAVEL
 
-if (tempo_texto > 0)
-{
-    tempo_texto -= 1; // Diminui 1 a cada frame
+if (tempo_texto > 0) {
+    tempo_texto -= 1;
+} else {
+    texto_flutuante = "";
+    cor_texto = c_white; // Volta para a cor padrão quando o texto some
 }
-else
-{
-    texto_flutuante = ""; // Limpa o texto quando o tempo acaba
-}
+
+
 
 
 // TROCA DE SPRITE

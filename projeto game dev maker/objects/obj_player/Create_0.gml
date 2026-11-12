@@ -94,7 +94,7 @@ image_yscale = escalaPlayer;
 // variaveis de texto para os coletaveis
 texto_flutuante = "";
 tempo_texto = 0;
-cor_texto = c_white;
+cor_texto = c_white; // Cor padrão para todos os itens
 
 
 // SISTEMA DE ESCURIDAO
