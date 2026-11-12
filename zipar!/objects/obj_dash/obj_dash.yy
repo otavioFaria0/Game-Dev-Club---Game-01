@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_dash",
-    "path":"sprites/spr_dash/spr_dash.yy",
+    "name":"Sprite15",
+    "path":"sprites/Sprite15/Sprite15.yy",
   },
   "spriteMaskId":null,
   "visible":true,

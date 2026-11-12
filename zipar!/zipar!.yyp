@@ -52,6 +52,7 @@
     {"id":{"name":"spr_tileset_spikes","path":"sprites/spr_tileset_spikes/spr_tileset_spikes.yy",},},
     {"id":{"name":"spr_tileset_woods","path":"sprites/spr_tileset_woods/spr_tileset_woods.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
+    {"id":{"name":"Sprite15","path":"sprites/Sprite15/Sprite15.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
     {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},},
     {"id":{"name":"TileSet3","path":"tilesets/TileSet3/TileSet3.yy",},},
