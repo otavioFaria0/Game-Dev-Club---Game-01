@@ -1,4 +1,5 @@
-// movimento do player
+
+ // movimento do player
 xspd = 0;
 yspd = 0;
 
@@ -9,9 +10,26 @@ runSpd = 5;
 jump = -9;
 grav = 0.4;
 
+// CONTROLE DAS HABILIDADES
+
+// cria a variavel global apenas uma vez
+if (!variable_global_exists("dashLiberado"))
+{
+    global.dashLiberado = false;
+}
+
+// verifica se o jogador ja coletou a habilidade
+dashLiberado = global.dashLiberado;
+
 // maximo de pulos para limitar o double jump
 pulos = 0;
 max_pulos = 2;
+
+// perde o pulo duplo somente depois de pegar o dash
+if (dashLiberado)
+{
+    max_pulos = 1;
+}
 
 // mecanica do dash
 
@@ -78,6 +96,14 @@ orientacaoSprite = 1;
 image_xscale = escalaPlayer;
 image_yscale = escalaPlayer;
 
-//variaveis de texto para os coletaveis
+// variaveis de texto para os coletaveis
 texto_flutuante = "";
 tempo_texto = 0;
+
+
+// variaveis de texto para os coletaveis
+texto_flutuante = "";
+tempo_texto = 0;
+
+// cor padrao do texto dos coletaveis
+cor_texto = c_white;

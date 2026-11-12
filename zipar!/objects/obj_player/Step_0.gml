@@ -1,3 +1,4 @@
+
 #region// INPUTS DO JOGADOR
 
 var _left = keyboard_check(ord("A")) || keyboard_check(vk_left);
@@ -18,6 +19,7 @@ var velocidade = moveSpd;
 #endregion
 
 #region// MOVIMENTAÇÃO
+
 if (_run)
 {
     velocidade = runSpd;
@@ -39,6 +41,7 @@ else if (_right && !_left)
 {
     direcaoPlayer = 1;
 }
+
 #endregion
 
 #region// VERIFICA SE ESTA NO CHAO
@@ -55,6 +58,7 @@ if (no_chao)
 
     pulos = 0;
 }
+
 #endregion
 
 #region// GRAVIDADE
@@ -63,6 +67,7 @@ if (!no_chao)
 {
     yspd += grav;
 }
+
 #endregion
 
 #region// MECANICA DAS PAREDES
@@ -87,6 +92,7 @@ if (wallSliding)
 {
     yspd = min(yspd, wallSlideSpd);
 }
+
 
 // WALL JUMP
 
@@ -123,6 +129,7 @@ if (wallJumpTempo > 0)
 
     direcaoPlayer = wallJumpDirecao;
 }
+
 #endregion
 
 #region// DASH
@@ -132,7 +139,9 @@ if (dashCooldown > 0)
     dashCooldown--;
 }
 
-if (_dash && dashCooldown <= 0 && dashTempo <= 0)
+// so permite dash depois de pegar o obj_dash
+if (_dash && dashLiberado &&
+    dashCooldown <= 0 && dashTempo <= 0)
 {
     dashTempo = dashDuracao;
     dashCooldown = dashEspera;
@@ -147,7 +156,9 @@ if (dashTempo > 0)
     dashTempo--;
     direcaoPlayer = dashDirecao;
 }
+
 #endregion
+
 
 // ESCALA FIXA PARA COLISAO
 
@@ -161,6 +172,7 @@ move_and_collide(xspd, yspd, obj_wall);
 
 
 #region SPRITE E ANIMAÇÃO
+
 // VERIFICA COLISAO DEPOIS DO MOVIMENTO
 
 var no_chao_final = place_meeting(x, y + 1, obj_wall);
@@ -216,20 +228,18 @@ else
     }
 }
 
-// contador para o texto do coletavel
-if (tempo_texto > 0) {
+
+// CONTADOR PARA O TEXTO DO COLETAVEL
+
+if (tempo_texto > 0)
+{
     tempo_texto -= 1; // Diminui 1 a cada frame
-} else {
+}
+else
+{
     texto_flutuante = ""; // Limpa o texto quando o tempo acaba
 }
 
-// reinicia a cor dos textos de coletaveis para branco, que é o padrão 
-if (tempo_texto > 0) {
-    tempo_texto -= 1;
-} else {
-    texto_flutuante = "";
-    cor_texto = c_white; // Volta para a cor padrão quando o texto some
-}
 
 // TROCA DE SPRITE
 
@@ -238,4 +248,5 @@ if (sprite_index != _sprite)
     sprite_index = _sprite;
     image_index = 0;
 }
+
 #endregion
