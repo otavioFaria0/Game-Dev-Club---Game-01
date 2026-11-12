@@ -2,8 +2,8 @@
 xspd = 0;
 yspd = 0;
 
-moveSpd = 4;
-runSpd = 6;
+moveSpd = 3.2;
+runSpd = 5;
 
 // mecanica do pulo
 jump = -9;
@@ -62,7 +62,7 @@ mask_index = spr_player_idle;
 image_speed = 0.2;
 
 // tamanho do personagem
-escalaPlayer = 3;
+escalaPlayer = 1.7;
 
 // direcao do personagem
 // 1 = direita
