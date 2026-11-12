@@ -77,3 +77,7 @@ orientacaoSprite = 1;
 // escala fixa para nao inverter a colisao
 image_xscale = escalaPlayer;
 image_yscale = escalaPlayer;
+
+//variaveis de texto para os coletaveis
+texto_flutuante = "";
+tempo_texto = 0;

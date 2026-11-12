@@ -12,3 +12,11 @@ other.dashCooldown = 0;
 
 // remove o objeto de habilidade do mapa
 instance_destroy();
+
+
+// No evento Collision com obj_player (dentro do objeto coletável)
+other.texto_flutuante = "Dash desbloqueado!";
+other.tempo_texto = 180; // 180 frames = 3 segundos (se o jogo roda a 60 FPS)
+
+// Destrói o poder depois que o player coleta
+instance_destroy();

@@ -1,3 +1,4 @@
+draw_self();
 
 // determina para qual lado o personagem olha
 var _direcao = direcaoPlayer;

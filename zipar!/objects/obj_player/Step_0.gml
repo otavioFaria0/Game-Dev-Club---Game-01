@@ -216,6 +216,13 @@ else
     }
 }
 
+// contador para o texto do coletavel
+if (tempo_texto > 0) {
+    tempo_texto -= 1; // Diminui 1 a cada frame
+} else {
+    texto_flutuante = ""; // Limpa o texto quando o tempo acaba
+}
+
 
 // TROCA DE SPRITE
 
