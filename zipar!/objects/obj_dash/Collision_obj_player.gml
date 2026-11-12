@@ -15,8 +15,9 @@ instance_destroy();
 
 
 // No evento Collision com obj_player (dentro do objeto coletável)
-other.texto_flutuante = "Dash desbloqueado!";
-other.tempo_texto = 180; // 180 frames = 3 segundos (se o jogo roda a 60 FPS)
+other.texto_flutuante = "Dash desbloqueado! [E]";
+other.tempo_texto = 360; // 180 frames = 3 segundos (se o jogo roda a 60 FPS)]
+other.cor_texto = c_black; // Define que ESSE texto será preto
 
 // Destrói o poder depois que o player coleta
 instance_destroy();

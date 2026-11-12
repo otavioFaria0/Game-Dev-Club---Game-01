@@ -223,6 +223,13 @@ if (tempo_texto > 0) {
     texto_flutuante = ""; // Limpa o texto quando o tempo acaba
 }
 
+// reinicia a cor dos textos de coletaveis para branco, que é o padrão 
+if (tempo_texto > 0) {
+    tempo_texto -= 1;
+} else {
+    texto_flutuante = "";
+    cor_texto = c_white; // Volta para a cor padrão quando o texto some
+}
 
 // TROCA DE SPRITE
 

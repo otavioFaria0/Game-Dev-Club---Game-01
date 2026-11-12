@@ -8,6 +8,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fonte_death","order":4,"path":"fonts/fonte_death/fonte_death.yy",},
+    {"name":"Tutorial","order":11,"path":"fonts/Tutorial/Tutorial.yy",},
     {"name":"obj_dash","order":9,"path":"objects/obj_dash/obj_dash.yy",},
     {"name":"obj_death","order":6,"path":"objects/obj_death/obj_death.yy",},
     {"name":"obj_enemy","order":1,"path":"objects/obj_enemy/obj_enemy.yy",},

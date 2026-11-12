@@ -26,6 +26,7 @@
   "name":"zipar!",
   "resources":[
     {"id":{"name":"fonte_death","path":"fonts/fonte_death/fonte_death.yy",},},
+    {"id":{"name":"Tutorial","path":"fonts/Tutorial/Tutorial.yy",},},
     {"id":{"name":"obj_dash","path":"objects/obj_dash/obj_dash.yy",},},
     {"id":{"name":"obj_death","path":"objects/obj_death/obj_death.yy",},},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
