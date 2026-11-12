@@ -16,10 +16,10 @@ max_pulos = 2;
 // mecanica do dash
 
 // velocidade do dash
-dashSpd = 12;
+dashSpd = 15;
 
 // duracao do dash
-dashDuracao = 10;
+dashDuracao = 15;
 dashTempo = 0;
 
 // intervalo entre os dashes
@@ -62,7 +62,7 @@ mask_index = spr_player_idle;
 image_speed = 0.2;
 
 // tamanho do personagem
-escalaPlayer = 1.7;
+escalaPlayer = 1.4;
 
 // direcao do personagem
 // 1 = direita
