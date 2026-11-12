@@ -27,6 +27,10 @@ if (_run)
 
 xspd = (_right - _left) * velocidade;
 
+if (_jump)
+{
+	audio_play_sound(snd_pulo, 0, 0);
+}
 
 // DIRECAO DO PERSONAGEM
 

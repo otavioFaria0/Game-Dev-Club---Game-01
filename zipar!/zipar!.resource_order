@@ -2,6 +2,7 @@
   "FolderOrderSettings":[
     {"name":"Objetos","order":3,"path":"folders/Objetos.yy",},
     {"name":"Salas","order":2,"path":"folders/Salas.yy",},
+    {"name":"Sons","order":5,"path":"folders/Sons.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Player","order":6,"path":"folders/Sprites/Player.yy",},
     {"name":"Tileset","order":7,"path":"folders/Sprites/Tileset.yy",},
